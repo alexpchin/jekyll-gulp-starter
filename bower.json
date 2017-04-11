@@ -1,0 +1,28 @@
+{
+  "name": "jekyll-gulp-starter",
+  "homepage": "https://github.com/alexpchin/jekyll-gulp-starter",
+  "authors": [
+    "alexpchin <alex@alexchin.co.uk>"
+  ],
+  "description": "A starter template for using jekyll with gulp.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "^5.0.0",
+    "font-awesome": "Font-Awesome#^4.6.3"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css",
+        "fonts/*"
+      ]
+    }
+  }
+}

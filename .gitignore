@@ -1,0 +1,9 @@
+build
+.sass-cache
+.jekyll-metadata
+
+# Assets
+src/css
+src/fonts
+src/js
+src/images
