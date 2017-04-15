@@ -4,7 +4,6 @@ const runSequence = require('run-sequence');
 const defaultTask = () => {
   return runSequence(
     'build-app',
-    // 'serve',
     'watch'
   );
 };

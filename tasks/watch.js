@@ -20,7 +20,7 @@ const watch = () => {
 
   gulp.watch([
     `${config.srcDir}${config.selectors.html}`
-  ], ['build-html']);
+  ], ['reload-html']);
 };
 
 gulp.task('watch', watch);
