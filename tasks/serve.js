@@ -1,22 +1,18 @@
-const gulp             = require('gulp');
-const browserSync      = require('browser-sync').create();
-const config           = require('../package').gulp;
+const gulp          = require('gulp');
+const browserSync   = require('browser-sync');
+const config        = require('./config');
 
 const serve = () => {
-  browserSync.init({
-    server: config.destDir,
-    // ghostMode: false,
-    // logFileChanges: true,
+  return browserSync.init(null, {
+    server: {
+      baseDir: config.destDir
+    },
     logLevel: 'debug',
-    open: true
+    open: true,
+    notify: false
   });
 };
 
-const reload = () => {
-  browserSync.reload();
-};
-
 gulp.task('serve', serve);
-gulp.task('reload', reload);
+
 module.exports = serve;
-module.exports = reload;

@@ -8,10 +8,10 @@ const babel       = require('gulp-babel');
 const eventStream = require('event-stream');
 const sourcemaps  = require('gulp-sourcemaps');
 const uglify      = require('gulp-uglify');
-const rename      = require('gulp-rename');
 const browserSync = require('browser-sync');
-const config      = require('../package').gulp;
 const replace     = require('gulp-replace');
+const clean       = require('gulp-clean');
+const config      = require('./config');
 
 const fetchVendorJs = () => {
   return gulp.src(bowerFiles(config.selectors.js))
@@ -32,6 +32,11 @@ const fetchLocalJs = () => {
     }));
 };
 
+const cleanJs = () => {
+  return gulp.src(config.dest.js, { read: false })
+    .pipe(clean());
+};
+
 const buildJs = () => {
   return eventStream.merge(
     fetchVendorJs(),
@@ -42,11 +47,11 @@ const buildJs = () => {
   .pipe(concat(config.output.js))
   .pipe(sourcemaps.init())
   .pipe(gulpIf(global.production, uglify()))
-  .pipe(gulpIf(global.production, rename({ suffix: '.min' })))
   .pipe(sourcemaps.write())
   .pipe(gulp.dest(config.dest.js))
   .pipe(gulpIf(!global.production, browserSync.stream()));
 };
 
-gulp.task('build-js', buildJs);
+gulp.task('clean-js', cleanJs);
+gulp.task('build-js', ['clean-js'], buildJs);
 module.exports = buildJs;

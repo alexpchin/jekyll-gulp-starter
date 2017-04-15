@@ -23,6 +23,11 @@ exclude:
   - node_modules
   - bower_components
   - package.json
+keep_files:
+  - css
+  - js
+  - images
+  - fonts
 
 # Social accounts
 facebook: https://facebook.com/alexpchin

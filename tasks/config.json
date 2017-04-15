@@ -1,0 +1,41 @@
+{
+  "srcDir": "src/",
+  "destDir": "build/",
+  "src": {
+    "js": "src/_assets/js/",
+    "scss": "src/_assets/scss/",
+    "fonts": "src/_assets/fonts/",
+    "images": "src/_assets/images/"
+  },
+  "dest": {
+    "js": "build/js/",
+    "css": "build/css/",
+    "fonts": "build/fonts/",
+    "images": "build/images/"
+  },
+  "main": {
+    "js": "app.js",
+    "index": "index.html",
+    "scss": "style.scss",
+    "server": "index.js",
+    "gulpfile": "gulpfile.js",
+    "packageJson": "package.json"
+  },
+  "vendor": {
+    "js": "vendor.js",
+    "css": "vendor.css"
+  },
+  "output": {
+    "js": "app.js",
+    "css": "style.css"
+  },
+  "selectors": {
+    "all": "**/*.*",
+    "js": "**/*.js",
+    "css": "**/*.css",
+    "scss": "**/*.scss",
+    "html": "**/*.html",
+    "images": "**/*.{png,jpg,jpeg,gif,ico}",
+    "fonts": "**/*.{eot,svg,ttf,woff,woff2}"
+  }
+}

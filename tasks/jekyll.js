@@ -1,6 +1,5 @@
-const gulp        = require('gulp');
-const cp          = require('child_process');
-const runSequence = require('run-sequence');
+const gulp  = require('gulp');
+const cp    = require('child_process');
 
 let command;
 switch (process.env.NODE_ENV) {
@@ -34,27 +33,15 @@ switch (process.env.NODE_ENV) {
     ];
     break;
   default:
-    command = [
-      'exec',
-      'jekyll',
-      'build',
-      '--drafts',
-      '--config',
-      '_config.yml'
-    ];
+    command = ['exec','jekyll','build','--drafts','--config','_config.yml'];
     break;
 }
 
 const buildJekyll = (done) => {
-  return cp.spawn('bundle', command, { stdio: 'inherit' })
+  // No return here!
+  cp.spawn('bundle', command, { stdio: 'inherit' })
     .on('close', done);
 };
 
-const rebuildJekyll = (done) => {
-  runSequence('build-jekyll', 'build-html', 'reload', done);
-};
-
 gulp.task('build-jekyll', buildJekyll);
-gulp.task('rebuild-jekyll', rebuildJekyll);
 module.exports = buildJekyll;
-module.exports = rebuildJekyll;

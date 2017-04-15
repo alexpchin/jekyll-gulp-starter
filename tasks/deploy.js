@@ -1,10 +1,12 @@
-const gulp = require('gulp');
+const gulp        = require('gulp');
+const runSequence = require('run-sequence');
 
 const deployTask = () => {
-  return gulp.start(['sitemap']);
+  global.production = true;
+  return runSequence(
+    'build-app',
+    'sitemap'
+  );
 };
 
-gulp.task('deploy', () => {
-  global.production = true;
-  return gulp.start(['build-app'], deployTask);
-});
+gulp.task('deploy', deployTask);

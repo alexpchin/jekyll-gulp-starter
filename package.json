@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "A starter template for using jekyll with gulp.",
   "main": "gulpfile.js",
-  "scripts": {
-    "preinstall": "bower install"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexpchin/jekyll-gulp-starter.git"
@@ -19,47 +16,6 @@
     "node": ">=6.x"
   },
   "homepage": "https://github.com/alexpchin/jekyll-gulp-starter#readme",
-  "gulp": {
-    "srcDir": "src/",
-    "destDir": "build/",
-    "src": {
-      "js": "src/_assets/js/",
-      "scss": "src/_assets/scss/",
-      "fonts": "src/_assets/fonts/",
-      "images": "src/_assets/images/"
-    },
-    "dest": {
-      "js": "src/js/",
-      "css": "src/css/",
-      "fonts": "src/fonts/",
-      "images": "src/images/"
-    },
-    "main": {
-      "js": "app.js",
-      "index": "index.html",
-      "scss": "style.scss",
-      "server": "index.js",
-      "gulpfile": "gulpfile.js",
-      "packageJson": "package.json"
-    },
-    "vendor": {
-      "js": "vendor.js",
-      "css": "vendor.css"
-    },
-    "output": {
-      "js": "app.js",
-      "css": "style.css"
-    },
-    "selectors": {
-      "all": "**/*.*",
-      "js": "**/*.js",
-      "css": "**/*.css",
-      "scss": "**/*.scss",
-      "html": "**/*.html",
-      "images": "**/*.{png,jpg,jpeg,gif,ico}",
-      "fonts": "**/*.{eot,svg,ttf,woff,woff2}"
-    }
-  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-es2015": "^6.18.0",
@@ -81,20 +37,19 @@
     "gulp-notify": "^2.2.0",
     "gulp-order": "^1.1.1",
     "gulp-plumber": "^1.1.0",
-    "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.3.2",
     "gulp-sitemap": "^4.2.0",
     "gulp-sourcemaps": "^2.2.0",
     "gulp-strip-css-comments": "^1.2.0",
     "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-changed": "^2.0.0",
     "htmlhint-stylish": "^1.0.3",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
     "main-bower-files": "^2.13.1",
     "require-dir": "^0.3.1",
-    "gulp-run": "^1.7.1",
-    "gulp-util": "^3.0.8",
     "run-sequence": "^1.2.2"
   }
 }

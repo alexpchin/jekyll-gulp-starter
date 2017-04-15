@@ -1,6 +1,5 @@
-const gulp        = require('gulp');
-const config      = require('../package').gulp;
-const browserSync = require('browser-sync');
+const gulp   = require('gulp');
+const config = require('./config');
 
 const watch = () => {
   gulp.watch([
@@ -21,12 +20,8 @@ const watch = () => {
   ], ['build-fonts']);
 
   gulp.watch([
-    `${config.srcDir}${config.selectors.all}`,
-    `!${config.src.scss}${config.selectors.scss}`,
-    `!${config.src.js}${config.selectors.js}`,
-    `!${config.src.images}${config.selectors.images}`,
-    `!${config.src.fonts}${config.selectors.fonts}`
-  ], ['rebuild-jekyll']);
+    `${config.srcDir}${config.selectors.html}`
+  ], ['build-html']);
 };
 
 gulp.task('watch', watch);

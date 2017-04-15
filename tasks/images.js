@@ -1,9 +1,11 @@
-const gulp             = require('gulp');
-const clean            = require('gulp-clean');
-const eventStream      = require('event-stream');
-const imagemin         = require('gulp-imagemin');
-const browserSync      = require('browser-sync');
-const config           = require('../package').gulp;
+const gulp        = require('gulp');
+const clean       = require('gulp-clean');
+const eventStream = require('event-stream');
+const imagemin    = require('gulp-imagemin');
+const browserSync = require('browser-sync');
+const gulpIf      = require('gulp-if');
+const changed     = require('gulp-changed');
+const config      = require('./config');
 
 const cleanImages = () => {
   return gulp.src(config.dest.images, { read: false })
@@ -12,11 +14,14 @@ const cleanImages = () => {
 
 const copyImages = () => {
   return gulp.src(`${config.src.images}${config.selectors.images}`)
-    .pipe(imagemin({
+    // Ignore unchanged files, so that not all images
+    // are being copied by the watch task.
+    .pipe(changed(config.destDir))
+    .pipe(gulpIf(global.production, imagemin({
       optimizationLevel: 3,
       progressive: true,
       interlaced: true
-    }))
+    })))
     .pipe(gulp.dest(config.dest.images));
 };
 

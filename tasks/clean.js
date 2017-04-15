@@ -1,36 +1,11 @@
-const gulp        = require('gulp');
-const clean       = require('gulp-clean');
-const eventStream = require('event-stream');
-const config      = require('../package').gulp;
+const gulp   = require('gulp');
+const clean  = require('gulp-clean');
+const config = require('./config');
 
-const cleanJs = () => {
-  return gulp.src(config.dest.js, { read: false })
-    .pipe(clean());
-};
-
-const cleanCss = () => {
-  return gulp.src(config.dest.css, { read: false })
-    .pipe(clean());
-};
-
-const cleanFonts = () => {
-  return gulp.src(config.dest.fonts, { read: false })
-    .pipe(clean());
-};
-
-const cleanDest = () => {
+const cleanJekyll = () => {
   return gulp.src(config.destDir, { read: false })
     .pipe(clean());
 };
 
-const cleanAll = () => {
-  return eventStream.merge(
-    cleanJs(),
-    cleanCss(),
-    cleanFonts(),
-    cleanDest()
-  );
-};
-
-gulp.task('clean', cleanAll);
-module.exports = cleanAll;
+gulp.task('clean', cleanJekyll);
+module.exports = clean;

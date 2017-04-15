@@ -1,8 +1,13 @@
-const gulp = require('gulp');
+const gulp        = require('gulp');
+const runSequence = require('run-sequence');
 
 const defaultTask = () => {
-  return gulp.start(['serve', 'watch']);
+  return runSequence(
+    'build-app',
+    // 'serve',
+    'watch'
+  );
 };
 
-gulp.task('default', ['build-jekyll'], defaultTask);
+gulp.task('default', ['clean'], defaultTask);
 module.exports = defaultTask;
