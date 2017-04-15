@@ -3,8 +3,7 @@ const config = require('./config');
 
 const watch = () => {
   gulp.watch([
-    `${config.src.scss}${config.selectors.scss}`,
-    `${config.src.scss}${config.main.scss}`
+    `${config.src.css}${config.selectors.css}`
   ], ['build-css']);
 
   gulp.watch([
