@@ -1,9 +1,11 @@
-const gulp   = require('gulp');
-const config = require('./config');
+const gulp        = require('gulp');
+const browserSync = require('browser-sync');
+const config      = require('./config');
 
 const watch = () => {
   gulp.watch([
-    `${config.src.css}${config.selectors.css}`
+    `${config.src.scss}${config.selectors.scss}`,
+    `${config.src.scss}${config.main.scss}`
   ], ['build-css']);
 
   gulp.watch([
@@ -20,7 +22,7 @@ const watch = () => {
 
   gulp.watch([
     `${config.srcDir}${config.selectors.html}`
-  ], ['reload-html']);
+  ], ['build-html']);
 };
 
 gulp.task('watch', watch);

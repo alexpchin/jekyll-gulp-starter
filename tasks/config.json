@@ -3,7 +3,7 @@
   "destDir": "build/",
   "src": {
     "js": "src/_assets/js/",
-    "scss": "src/_assets/scss/",
+    "css": "src/_assets/css/",
     "fonts": "src/_assets/fonts/",
     "images": "src/_assets/images/"
   },
@@ -16,7 +16,7 @@
   "main": {
     "js": "app.js",
     "index": "index.html",
-    "scss": "style.scss",
+    "css": "style.css",
     "server": "index.js",
     "gulpfile": "gulpfile.js",
     "packageJson": "package.json"

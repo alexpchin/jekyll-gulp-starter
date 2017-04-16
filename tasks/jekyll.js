@@ -38,8 +38,7 @@ switch (process.env.NODE_ENV) {
 }
 
 const buildJekyll = (done) => {
-  // No return here!
-  cp.spawn('bundle', command, { stdio: 'inherit' })
+  return cp.spawn('bundle', command, { stdio: 'inherit' })
     .on('close', done);
 };
 
